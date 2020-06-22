@@ -1,0 +1,36 @@
+{
+    "name": "ez-laravel/currency-conversion",
+    "description": "Easy Laravel Currency Conversion",
+    "authors": [
+        {
+            "name": "Nick Verheijen",
+            "email": "verheijen.webdevelopment@gmail.com"
+        }
+    ],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "EZ\\CurrencyConversion\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EZ\\CurrencyConversion\\Tests\\": "tests/" 
+        }
+    },
+    "require": {},
+    "require-dev": {},
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "EZ\\CurrencyConversion\\Providers\\CurrencyConversionServiceProvider"
+            ],
+            "facades": [
+                "EZ\\CurrencyConversion\\Facades\\CurrenciesFacade"
+            ]
+        }
+    }
+}
