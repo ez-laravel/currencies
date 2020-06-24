@@ -27,6 +27,26 @@ class ApiManager extends Manager
     }
 
     /**
+     * Create an instance of the Frankfurter.app Currency Rate API driver
+     * 
+     * @return FrankfurterApi
+     */
+    protected function createFrankfurterDriver()
+    {
+        return new FrankfurterApi;
+    }
+
+    /**
+     * Create an instance of the exchangeratesapi.io Currency Rate API driver
+     * 
+     * @return ExchangeratesApi
+     */
+    protected function createExchangeratesDriver()
+    {
+        return new ExchangeratesApi;
+    }
+
+    /**
      * Get the default driver
      * 
      * @return string

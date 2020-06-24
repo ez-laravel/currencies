@@ -46,9 +46,9 @@ CURRENCIES_DEFAULT=USD
 The following APIs are supported or under development to be supported:
 
 - [x] [Fixer.io](https://fixer.io)
-- [ ] [Ratesapi.io](https://ratesapi.io/)
-- [ ] [Frankfurter.app](https://www.frankfurter.app)
-- [ ] [Exchangeratesapi.io](https://exchangeratesapi.io/)
+- [x] [Ratesapi.io](https://ratesapi.io/)
+- [x] [Frankfurter.app](https://www.frankfurter.app)
+- [x] [Exchangeratesapi.io](https://exchangeratesapi.io/)
 
 You can change the drive the package will use by adding the following key to your `.env` file:
 ```
@@ -69,6 +69,18 @@ CURRENCIES_FIXER_API_KEY=xxxxxxxx
 `rates` 
 
 The [ratesapi.io website](https://ratesapi.io) does not require an API key!
+
+#### Frankfurter
+
+`frankfurter`
+
+The [frankfurter.app website](https://frankfurter.app) does not require an API key!
+
+#### ExchangeRatesAPI
+
+`exchangerates`
+
+The [exchangeratesapi.io website](https://exchangeratesapi.io/) does not require an API key!
 
 ## Usage
 

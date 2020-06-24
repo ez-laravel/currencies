@@ -7,22 +7,15 @@ use Illuminate\Support\Collection;
 use EZ\Currencies\Models\Currency;
 use EZ\Currencies\Contracts\CurrencyRateApi;
 
-class FixerApi implements CurrencyRateApi
+class ExchangeRatesApi implements CurrencyRateApi
 {
-    private $apiKey;
-
-    public function __construct()
-    {
-        $this->apiKey = config("currencies.conversion_rates.api_keys.fixer");
-    }
-
     public function getConversionRatesFor(Currency $currency, Collection $currencies)
     {
-        // Compose the string indicating the target currencies we want the exchange rate from using the $currency as it's base
-        $targets = $this->extractSymbols($currencies);
+        // Compose target currency symbols
+        $targets = $this->extractSymbols($currencies, $currency);
 
         // Compose the API endpoint we'll be calling
-        $endpoint = "https://data.fixer.io/api/latest?access_key=".$this->apiKey."&base=".$currency->code."&symbols=".$targets;
+        $endpoint = "https://api.exchangeratesapi.io/latest?base=".$currency->code."&symbols=".$targets;
 
         // Use guzzle to make a HTTP request to the API endpoint
         $client = new Client();
@@ -30,12 +23,18 @@ class FixerApi implements CurrencyRateApi
         $response = json_decode($result->getBody()->getContents());
 
         // If something went wrong return false
-        if (!$response->success) return false;
+        if ($result->getStatusCode() !== 200) return false;
 
         // Otherwise return the retrieved rates as an array
-        return (array) $response->rates;
-    }
+        $data = (array) $response->rates;
 
+        // Add the conversion rate for itself (since this API does not return it)
+        $data[$currency->code] = 1;
+
+        // Return the data
+        return $data;
+    }
+    
     private function extractSymbols(Collection $currencies, Currency $exclude = null)
     {   
         // Collect the currency codes of all currencies other than the base currency
