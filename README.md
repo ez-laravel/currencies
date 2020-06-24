@@ -38,7 +38,7 @@ php artisan vendor:publish --provider="EZ\Currencies\Providers\CurrenciesService
 
 The default currency is set to EUR, which you can change by adding the following key to your `.env` file with the desired currency code:
 ```
-DEFAULT_CURRENCY=USD
+CURRENCIES_DEFAULT=USD
 ```
 
 #### Currency Conversion Rate API
@@ -52,17 +52,21 @@ The following APIs are supported or under development to be supported:
 
 You can change the drive the package will use by adding the following key to your `.env` file:
 ```
-CURRENCY_API_DRIVER=fixer
+CURRENCIES_API_DRIVER=fixer
 ```
 
 #### Fixer
 
+`fixer`
+
 Get an API key from the [fixer.io website](https://fixer.io) and add it to your `.env` file:
 ```
-FIXER_API_KEY=xxxxxxxx
+CURRENCIES_FIXER_API_KEY=xxxxxxxx
 ```
 
 #### RatesAPI
+
+`rates` 
 
 The [ratesapi.io website](https://ratesapi.io) does not require an API key!
 

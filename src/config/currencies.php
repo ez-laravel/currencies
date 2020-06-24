@@ -12,7 +12,7 @@ return [
         "session_key" => "active_currency_code",
 
         // Default currency
-        "default_currency" => env("DEFAULT_CURRENCY", "EUR"),
+        "default_currency" => env("CURRENCIES_DEFAULT", "EUR"),
 
     ],
 
@@ -20,13 +20,13 @@ return [
     "conversion_rates" => [
 
         // What driver should be used? Options are: 'fixer', 
-        "driver" => env("CURRENCY_API_DRIVER", "fixer"),
+        "driver" => env("CURRENCIES_API_DRIVER", "fixer"),
     
         // API keys
         "api_keys" => [
 
             // Fixer.io API key
-            "fixer" => env("FIXER_API_KEY"),
+            "fixer" => env("CURRENCIES_FIXER_API_KEY"),
 
         ],
 
