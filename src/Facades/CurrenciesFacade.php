@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Facades;
+namespace EZ\Currencies\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

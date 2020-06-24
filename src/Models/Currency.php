@@ -1,6 +1,6 @@
 <?php
 
-namespace EZ\CurrencyConversion\Models;
+namespace EZ\Currencies\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

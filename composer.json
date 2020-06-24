@@ -18,7 +18,11 @@
             "EZ\\Currencies\\Tests\\": "tests/" 
         }
     },
-    "require": {},
+    "require": {
+        "guzzlehttp/guzzle": "^6.5",
+        "illuminate/support": "^7.0",
+        "ez-laravel/model-services": "^1.0"
+    },
     "require-dev": {},
     "extra": {
         "branch-alias": {
@@ -28,9 +32,9 @@
             "providers": [
                 "EZ\\Currencies\\Providers\\CurrenciesServiceProvider"
             ],
-            "facades": [
-                "EZ\\Currencies\\Facades\\CurrenciesFacade"
-            ]
+            "aliases": {
+                "Currencies": "EZ\\Currencies\\Facades\\CurrenciesFacade"
+            }
         }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Currency;
+use EZ\Currencies\Models\Currency;
 
 use Illuminate\Database\Seeder;
 
