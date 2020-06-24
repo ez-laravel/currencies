@@ -45,7 +45,7 @@ class FixerApi implements CurrencyRateApi
         foreach ($currencies as $currency)
         {
             // If this is the base currency, skip it
-            if (!is_null($exclude) && $exclude->id == $currency->id) continue;
+            // if (!is_null($exclude) && $exclude->id == $currency->id) continue;
 
             // Add the currency code to the list of codes
             $codes[] = $currency->code;
