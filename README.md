@@ -43,11 +43,12 @@ DEFAULT_CURRENCY=USD
 
 #### Currency Conversion Rate API
 
+The following APIs are supported or under development to be supported:
 
-The package supports several APIs to retrieve currency conversion rates. Supported drivers are:
-
-- `fixer` (default)
-- `ratesapi`
+- [x] [Fixer.io](https://fixer.io)
+- [ ] [Ratesapi.io](https://ratesapi.io/)
+- [ ] [Frankfurter.app](https://www.frankfurter.app)
+- [ ] [Exchangeratesapi.io](https://exchangeratesapi.io/)
 
 You can change the drive the package will use by adding the following key to your `.env` file:
 ```
@@ -111,14 +112,32 @@ protected function schedule(Schedule $schedule)
 ```
 [More information on task scheduling can be found here](https://laravel.com/docs/7.x/scheduling#scheduling-artisan-commands).
 
-## Supported APIs
+#### Extending the Currency model
 
-The following APIs are supported or under development to be supported:
+In most applications you will want to create relationships between the Currency model and for example a Product model or Order model. To do this simply create your own Currency model which extends the `EZ\Currencies\Models\Currency` model and update the model path in the `currencies.php` config file.
 
-- [x] [Fixer.io](https://fixer.io)
-- [ ] [Ratesapi.io](https://ratesapi.io/)
-- [ ] [Frankfurter.app](https://www.frankfurter.app)
-- [ ] [Exchangeratesapi.io](https://exchangeratesapi.io/)
+So for example:
+```php
+<?php
+
+namespace App\Models;
+
+use EZ\Currencies\Models\Currency as BaseCurrency;
+
+class Currency extends BaseCurrency
+{
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+}
+```
+And in `currencies.php`
+```php
+...
+    'model' => App\Models\Currency::class,
+...
+```
 
 ## Contributing
 

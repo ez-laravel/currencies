@@ -58,7 +58,7 @@ class CurrencyService implements ModelServiceContract
      */
     public function default()
     {
-        return $this->findByCode(config("currencies.active_currency.session_key"));
+        return $this->findByCode(config("currencies.active_currency.default_currency"));
     }
 
     /**
